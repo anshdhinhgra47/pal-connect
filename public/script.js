@@ -1,4 +1,4 @@
-const videoGrid = document.getElementById('video_grid');
+const videoGrid = document.getElementById('video-grid');
 
 const myVideo = document.createElement('video');
 
