@@ -1,6 +1,9 @@
 const socket  = io('/');
 const videoGrid = document.getElementById('video-grid');
 const myVideo = document.createElement('video');
+myVideo.style.height = '300px';
+myVideo.style.width = '400px';
+myVideo.style.objectFit = 'cover';
 
 myVideo.muted = true;
 
@@ -22,6 +25,9 @@ navigator.mediaDevices.getUserMedia({
     peer.on('call', call => {
         call.answer(stream);
         const video = document.createElement('video');
+        video.style.height = '300px';
+        video.style.width = '400px';
+        video.style.objectFit = 'cover';
         call.on('stream', userVideoStream => {
             addVideoStream(video, userVideoStream);
         });
@@ -40,7 +46,10 @@ peer.on('open', id => {
 
 const connectToNewUser = (userId, stream) => {
     const call = peer.call(userId, stream);
-    const video = document.createElement('video')
+    const video = document.createElement('video');
+    video.style.height = '300px';
+    video.style.width = '400px';
+    video.style.objectFit = 'cover';
     call.on('stream', userVideoStream => {
         addVideoStream(video, userVideoStream)
     })

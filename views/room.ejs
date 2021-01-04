@@ -3,16 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylseheet" src="style.css">
+    <link rel="stylesheet" href="/public/style.css">
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
     <title>Zoom Clone</title>
     <script>
         const ROOM_ID = "<%= roomId %>";
     </script>
 </head>
-<body>
-    <div id="video-grid">
+<body style="margin: 0; padding: 0;">
+
+
+    <div class="main" style="height: 100vh; display: flex;">
+        <div class="main_left" style="flex: 0.8; display: flex; flex-direction: column;">
+            <div class="main_videos" style="flex-grow: 1; background-color: black; display: flex; justify-content: center; align-items: center;">
+                <div id="video-grid" style="display: flex; justify-content: center;">
+                    
+                </div>
+            </div>
+
+            <div class="control_bar">
+                <div class="controls_block">
+                    <div class="controls_button">
+                        <i class="fas fa-microphone"></i>
+                        <span>Mute</span>
+                    </div>
+                    <div class="controls_button">
+                        <i class="fas fa-video"></i>
+                        <span>Stop Video</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main_right" style="flex:0.2;">
+            <div class="chat_window">
+                <h6>Chat</h6>
+            </div>
+        </div>
 
     </div>
 
