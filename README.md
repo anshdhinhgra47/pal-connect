@@ -1,2 +1,2 @@
-# palect (Pal-Connect)
-Palect is a zoom clone using NodeJS that uses WebRTC and PeerJS along with ejs template.
+# Pal-Connect
+Pal-Connect is a zoom clone using NodeJS that uses WebRTC and PeerJS for real-time communication.
