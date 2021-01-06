@@ -28,11 +28,11 @@
 
             <div class="control_bar" style="display: flex; justify-content: space-between; background-color: #1C1E20; color: #d2d2d2; padding: 5px;">
                 <div class="controls_block" style="display: flex; ">
-                    <div class="controls_button" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 8px 10px; cursor: pointer;">
+                    <div onclick="muteButton()" class="controls_button mute_btn" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 8px 10px; cursor: pointer;">
                         <i class="fas fa-microphone" style="font-size: 24px;"></i>
                         <span>Mute</span>
                     </div>
-                    <div class="controls_button" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 8px 10px; cursor: pointer;">
+                    <div onclick="playStop()" class="controls_button video_btn" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 8px 10px; cursor: pointer;">
                         <i class="fas fa-video" style="font-size: 24px;"></i>
                         <span>Stop Video</span>
                     </div>

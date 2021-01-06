@@ -17,7 +17,7 @@ var peer = new Peer(undefined, {
 let myVideoStream;
 navigator.mediaDevices.getUserMedia({
     video: true,
-    audio: false
+    audio: true
 }).then(stream => {
     myVideoStream = stream;
     addVideoStream(myVideo, stream);
@@ -87,3 +87,60 @@ const scrollToBottom = () => {
     scroll.scrollTop(scroll.prop("scrollHeight"));
 }
 
+const muteButton = () => {
+    const enabled = myVideoStream.getAudioTracks()[0].enabled;
+    if (enabled) {
+        myVideoStream.getAudioTracks()[0].enabled = false;
+        setUnmutedButton();
+    } else {
+        setMuteButton();
+        myVideoStream.getAudioTracks()[0].enabled = true;
+    }
+}
+
+const setMuteButton = () => {
+    const newBtn = `
+    <i class="fas fa-microphone" style="font-size: 24px;"></i>
+    <span>Mute</span>
+    `;
+
+    document.querySelector('.mute_btn').innerHTML = newBtn;
+}
+
+const setUnmutedButton = () => {
+    const newBtn = `
+    <i class="unmute fas fa-microphone-slash" style="font-size: 24px; color: #CC3B33;"></i>
+    <span>Unmute</span>
+    `;
+
+    document.querySelector('.mute_btn').innerHTML = newBtn;
+}
+
+const playStop = () => {
+    let enabled = myVideoStream.getVideoTracks()[0].enabled;
+    if (enabled) {
+        myVideoStream.getVideoTracks()[0].enabled = false;
+        setPlayVideo();
+    } else {
+        setStopVideo();
+        myVideoStream.getVideoTracks()[0].enabled = true;
+    }
+}
+
+const setPlayVideo = () => {
+    const newVideo = `
+    <i class="stop fas fa-video-slash" style="font-size: 24px; color: #CC3B33;"></i>
+    <span>Play Video</span>
+    `;
+
+    document.querySelector('.video_btn').innerHTML = newVideo;
+}
+
+const setStopVideo = () => {
+    const newVideo = `
+    <i class="fas fa-video" style="font-size: 24px;"></i>
+    <span>Stop Video</span>
+    `;
+
+    document.querySelector('.video_btn').innerHTML = newVideo;
+}
